@@ -1,0 +1,70 @@
+import React, {useState} from 'react';
+import {useGetPokemon} from "../../hooks";
+import {useFormik} from "formik";
+import {Container} from "../../styles/components/Shared";
+import {
+    Button,
+    Card,
+    CardBody,
+    CardImage,
+    Error,
+    Form,
+    Image,
+    Input,
+    Title,
+    Wrap
+} from "../../styles/components/Home.style";
+
+const HomePage = () => {
+    const [searchInput, setSearchInput] = useState(null)
+    const formik = useFormik({
+        initialValues: {
+            pokemon: '',
+        },
+        onSubmit: (values) => {
+            setSearchInput(values.pokemon.toLowerCase());
+        }
+    });
+
+    const {loading, error, pokemon} = useGetPokemon(searchInput);
+
+
+    return (
+        <Container>
+            <Wrap>
+                <Title>Capture a pokémon</Title>
+                <Form onSubmit={formik.handleSubmit}>
+                    <label htmlFor="pokemon" hidden>Input a pokemon name</label>
+                    <Input type="text"
+                           name="pokemon"
+                           onChange={formik.handleChange}
+                           onBlur={formik.handleBlur}
+                           value={formik.values.pokemon}
+                           error={formik.touched.pokemon && formik.errors.pokemon}/>
+                    <Button type="submit">Go!</Button>
+                    {error && <Error>* Invalid name</Error>}
+                </Form>
+            </Wrap>
+            {!loading && pokemon && (
+                <Wrap>
+                    <Title>Gotcha!</Title>
+
+                    <Card>
+                        <CardImage>
+
+                            <Image src={pokemon.image} alt={pokemon.name}/>
+                        </CardImage>
+                        <CardBody>
+                            <h2>{pokemon.name}</h2>
+                            <p>Type: {pokemon.type}</p>
+                            <span>Abilities: </span>
+                            <ul>{pokemon.abilities.map((ability => (<li>{ability}</li>)))}</ul>
+                        </CardBody>
+                    </Card>
+                </Wrap>
+            )}
+        </Container>
+    );
+}
+
+export default HomePage;
