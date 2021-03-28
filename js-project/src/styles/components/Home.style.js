@@ -42,7 +42,7 @@ export const Card = styled.div`
   background-color: limegreen;
   color: white;
   border-radius: 8px;
-  width: 150px;
+  width: 200px;
   margin: 24px auto;
 `
 
@@ -55,6 +55,7 @@ export const CardImage = styled.div`
 `
 
 export const Image = styled.img`
+  width: 120px;
   margin: 0 auto;
 `
 

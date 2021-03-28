@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import {useGetPokemon} from "../../hooks";
+import {useGetPokemon} from "../hooks";
 import {useFormik} from "formik";
-import {Container} from "../../styles/components/Shared";
+import {Container} from "../styles/components/Shared";
 import {
     Button,
     Card,
@@ -13,7 +13,7 @@ import {
     Input,
     Title,
     Wrap
-} from "../../styles/components/Home.style";
+} from "../styles/components/Home.style";
 
 const HomePage = () => {
     const [searchInput, setSearchInput] = useState(null)
@@ -40,7 +40,7 @@ const HomePage = () => {
                            onChange={formik.handleChange}
                            onBlur={formik.handleBlur}
                            value={formik.values.pokemon}
-                           error={formik.touched.pokemon && formik.errors.pokemon}/>
+                    />
                     <Button type="submit">Go!</Button>
                     {error && <Error>* Invalid name</Error>}
                 </Form>
