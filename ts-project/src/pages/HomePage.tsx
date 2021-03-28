@@ -15,8 +15,8 @@ import {
     Wrap
 } from "../styles/components/Home.style";
 
-const HomePage = () => {
-    const [searchInput, setSearchInput] = useState(null)
+const HomePage: React.FC = () => {
+    const [searchInput, setSearchInput] = useState<string | null>(null)
     const formik = useFormik({
         initialValues: {
             pokemon: '',
@@ -49,10 +49,8 @@ const HomePage = () => {
             {!loading && pokemon && (
                 <Wrap>
                     <Title>Gotcha!</Title>
-
                     <Card>
                         <CardImage>
-
                             <Image src={pokemon.image} alt={pokemon.name}/>
                         </CardImage>
                         <CardBody>
