@@ -28,7 +28,6 @@ const HomePage: React.FC = () => {
 
     const {loading, error, pokemon} = useGetPokemon(searchInput);
 
-
     return (
         <Container>
             <Wrap>
@@ -55,6 +54,7 @@ const HomePage: React.FC = () => {
                         </CardImage>
                         <CardBody>
                             <h2>{pokemon.name}</h2>
+                            <p>Number: {pokemon.id}</p>
                             <p>Type: {pokemon.type}</p>
                             <span>Abilities: </span>
                             <ul>{pokemon.abilities.map((ability => (<li>{ability}</li>)))}</ul>
@@ -64,6 +64,6 @@ const HomePage: React.FC = () => {
             )}
         </Container>
     );
-}
+};
 
 export default HomePage;

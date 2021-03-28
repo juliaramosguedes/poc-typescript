@@ -28,16 +28,16 @@ const parsePokemon = (pokemon) => {
         stats: parseStats,
         type: types[0].type.name
     };
-}
+};
 
-const useGetPokemon = (idOrName) => {
+const useGetPokemon = (nameOrId) => {
     const [loading, setLoading] = useState(true);
     const [pokemon, setPokemon] = useState(null);
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        if (idOrName) {
-            getPokemon(idOrName).then((result) => {
+        if (nameOrId) {
+            getPokemon(nameOrId).then((result) => {
                 setError(null);
                 const parsedPokemon = parsePokemon(result);
                 setPokemon(parsedPokemon);
@@ -48,7 +48,7 @@ const useGetPokemon = (idOrName) => {
                 setError(error.message);
             });
         }
-    }, [idOrName]);
+    }, [nameOrId]);
 
     return {loading, error, pokemon};
 };

@@ -53,14 +53,14 @@ const parsePokemon = (pokemon: any): ParsePokemonDTO => {
     };
 }
 
-const useGetPokemon = (name: string | null): UseGetPokemonDTO => {
+const useGetPokemon = (nameOrId: string | null): UseGetPokemonDTO => {
     const [loading, setLoading] = useState<boolean>(true);
     const [pokemon, setPokemon] = useState<ParsePokemonDTO | null>(null);
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
-        if (name) {
-            getPokemon(name).then((result) => {
+        if (nameOrId) {
+            getPokemon(nameOrId).then((result) => {
                 setError(null);
                 const parsedPokemon = parsePokemon(result);
                 setPokemon(parsedPokemon);
@@ -71,7 +71,7 @@ const useGetPokemon = (name: string | null): UseGetPokemonDTO => {
                 setError(error.message);
             });
         }
-    }, [name]);
+    }, [nameOrId]);
 
     return {loading, error, pokemon};
 };

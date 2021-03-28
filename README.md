@@ -4,7 +4,9 @@ This repository has 2 similar projects, one in Javascript and another in Typescr
 
 The objective of this POC is prove the benefits of use Typescript instead of Javascript.
 
-For more information, there is a presentation here: [Javascript x Typescript](https://docs.google.com/presentation/d/1x-rN71tvo11_GqUUX6t8b0qmYtd4sc_RGHD4RzCe9pc/edit?usp=sharing)
+You can check the deployed project at [https://poke-ts.vercel.app/](https://poke-ts.vercel.app/).
+
+For more information, there is a presentation here: [Javascript x Typescript](https://docs.google.com/presentation/d/1x-rN71tvo11_GqUUX6t8b0qmYtd4sc_RGHD4RzCe9pc/edit?usp=sharing).
 
 ## How to use
 
