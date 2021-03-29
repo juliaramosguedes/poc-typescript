@@ -8,7 +8,7 @@ interface getPokemonDTO {
     baseExp: number;
     isDefault: boolean;
     image: string;
-    stats: object[],
+    stats: object[];
     type: string;
 }
 

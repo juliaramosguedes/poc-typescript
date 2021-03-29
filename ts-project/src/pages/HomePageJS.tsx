@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {useGetPokemon} from "../hooks";
+import useGetPokemon from "../hooks/useGetPokemonJS";
 import {useFormik} from "formik";
 import {Container} from "../styles/components/Shared";
 import {
@@ -26,6 +26,7 @@ const HomePage: React.FC = () => {
         }
     });
 
+    // @ts-ignore
     const {loading, error, pokemon} = useGetPokemon(searchInput);
 
     return (
@@ -57,7 +58,7 @@ const HomePage: React.FC = () => {
                             <p>Number: {pokemon.id}</p>
                             <p>Type: {pokemon.type}</p>
                             <span>Abilities: </span>
-                            <ul>{pokemon.abilities.map(ability => (<li>{ability}</li>))}</ul>
+                            <ul>{pokemon.abilities.map((ability: string) => (<li>{ability}</li>))}</ul>
                         </CardBody>
                     </Card>
                 </Wrap>

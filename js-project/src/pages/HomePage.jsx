@@ -28,7 +28,6 @@ const HomePage = () => {
 
     const {loading, error, pokemon} = useGetPokemon(searchInput);
 
-
     return (
         <Container>
             <Wrap>
@@ -49,10 +48,8 @@ const HomePage = () => {
             {!loading && pokemon && (
                 <Wrap>
                     <Title>Gotcha!</Title>
-
                     <Card>
                         <CardImage>
-
                             <Image src={pokemon.image} alt={pokemon.name}/>
                         </CardImage>
                         <CardBody>
