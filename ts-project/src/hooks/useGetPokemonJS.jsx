@@ -1,10 +1,10 @@
 import {useEffect, useState} from 'react';
 import _ from 'lodash';
-import {getPokemon} from "../api";
+import getPokemon from "../api/pokemonJS";
 
 /**
  * A stats object
- * @typedef {Object} Stats
+ * @typedef {Object} PokemonStats
  * @property {number} baseStat
  * @property {string} name
  */
@@ -19,8 +19,16 @@ import {getPokemon} from "../api";
  * @property {number} baseExp
  * @property {boolean} isDefault
  * @property {string} image
- * @property {Object} Stats
+ * @property {PokemonStats} stats
  * @property {string} type
+ */
+
+/**
+ *  * A useGetPokemon object
+ * @typedef {Object} UseGetPokemon
+ * @property {boolean} loading
+ * @property {string} error
+ * @property {Pokemon} pokemon
  */
 
 const parsePokemon = (pokemon) => {
@@ -51,6 +59,10 @@ const parsePokemon = (pokemon) => {
     };
 };
 
+/**
+ * @param {string | null} nameOrId
+ * @returns {UseGetPokemon}
+ */
 const useGetPokemon = (nameOrId) => {
     const [loading, setLoading] = useState(true);
     const [pokemon, setPokemon] = useState(null);
@@ -71,11 +83,7 @@ const useGetPokemon = (nameOrId) => {
         }
     }, [nameOrId]);
 
-    /**
-     * @type {{loading: boolean}, {error: string}, {pokemon: Pokemon}}
-     */
-    const pokemonHook = {loading, error, pokemon};
-    return pokemonHook;
+    return {loading, error, pokemon};
 };
 
 export default useGetPokemon;
