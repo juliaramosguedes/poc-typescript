@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
 import _ from 'lodash';
-import {getPokemon} from "../api";
+import { getPokemon, getPokemonDTO } from "../api";
 
 interface StatsDTO {
     baseStat: number;
@@ -25,7 +25,7 @@ interface UseGetPokemonDTO {
     error: string | null;
 }
 
-const parsePokemon = (pokemon: any): ParsePokemonDTO => {
+const parsePokemon = (pokemon: getPokemonDTO): ParsePokemonDTO => {
     const {
         abilities,
         base_experience: baseExp,

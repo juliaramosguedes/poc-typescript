@@ -1,5 +1,14 @@
 import styled from "styled-components";
 
+export const Container = styled.section`
+  max-width: 800px;
+  margin: 36px auto 24px;
+  min-height: calc(100vh - 60px);
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+`
+
 export const Wrap = styled.div`
   max-width: 300px;
   margin: 0 auto;
@@ -34,7 +43,7 @@ export const Error = styled.p`
 `
 
 export const Form = styled.form`
-  margin-bottom: 36px;
+  margin-bottom: 24px;
 `
 
 export const Card = styled.div`
@@ -45,7 +54,6 @@ export const Card = styled.div`
   width: 200px;
   margin: 24px auto;
 `
-
 
 export const CardImage = styled.div`
   background-color: white;
@@ -62,4 +70,20 @@ export const Image = styled.img`
 export const CardBody = styled.div`
   padding: 24px;
   background-color: limegreen;
+`
+
+export const Footer = styled.footer`
+  padding: 32px 32px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  p {
+    text-align: center;
+  }
+  
+  a {
+    color: dodgerblue;
+  }
 `

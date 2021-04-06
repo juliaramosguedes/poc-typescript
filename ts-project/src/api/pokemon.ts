@@ -1,17 +1,23 @@
 import axios from 'axios';
 
-interface getPokemonDTO {
+export interface SpritesDTO {
+    front_default: string
+}
+
+export interface TypesDTO {
+    type: { name: string }
+}
+
+export interface getPokemonDTO {
     id: number;
     name: string;
     abilities: object[];
     moves: object[];
-    baseExp: number;
-    isDefault: boolean;
-    image: string;
+    base_experience: number;
+    is_default: boolean;
+    sprites: SpritesDTO;
     stats: object[];
-    type: string;
+    types: TypesDTO[];
 }
 
-const getPokemon = (nameOrId: string): Promise<getPokemonDTO> => axios(`https://pokeapi.co/api/v2/pokemon/${nameOrId}`).then(result => result.data);
-
-export default getPokemon
+export const getPokemon = (nameOrId: string): Promise<getPokemonDTO> => axios(`https://pokeapi.co/api/v2/pokemon/${nameOrId}`).then(result => result.data);
